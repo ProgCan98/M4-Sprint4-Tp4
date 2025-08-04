@@ -1,10 +1,11 @@
+import PersonajeCard from './components/PersonajeCard';
 import SearchForm from './components/searchForm';
 
 function App() {
   return (
     <>
-      <br />
       <SearchForm />
+      <PersonajeCard />
     </>
   );
 }

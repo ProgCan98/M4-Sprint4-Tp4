@@ -1,10 +1,28 @@
 import { useState } from 'react';
+import { usePersonaje } from '../hooks/contexts/personajeContextUtils';
 
 const SearchForm = () => {
   const [name, setName] = useState(''); // define el estado para el nombre del personaje
-  console.log(name); // imprime el nombre del personaje en la consola
+  const { getPersonaje } = usePersonaje(); // usa el contexto para obtener la función getPersonaje
+
+  const HanddleSubmit = (e) => {
+    e.preventDefault();
+    if (!name.trim()) {
+      alert('Por favor, ingresa un nombre de personaje');
+      return;
+    }
+    // Validación: mínimo 3 caracteres
+    if (name.trim().length < 3) {
+      alert('El nombre debe tener al menos 3 caracteres');
+      return;
+    }
+
+    getPersonaje(name); // llama a la función getPersonaje con el nombre ingresado
+  };
   return (
-    <form //onSubmit = {HanddleSubmit}
+    <form
+      onSubmit={HanddleSubmit}
+      className="max-w-md mx-auto p-4 bg-white shadow-md rounded-lg mt-10"
     >
       <h1 className="text-center text-6xl text-green-700 font-bold">
         Rick and Morty
