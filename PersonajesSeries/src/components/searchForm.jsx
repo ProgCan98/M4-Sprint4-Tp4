@@ -1,47 +1,70 @@
 import { useState } from 'react';
 import { usePersonaje } from '../hooks/contexts/personajeContextUtils';
+import { toast } from 'react-toastify';
 
 const SearchForm = () => {
-  const [name, setName] = useState(''); // define el estado para el nombre del personaje
-  const { getPersonaje } = usePersonaje(); // usa el contexto para obtener la función getPersonaje
+  const [name, setName] = useState('');
+  const { getPersonaje, theme } = usePersonaje();
 
-  const HanddleSubmit = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     if (!name.trim()) {
-      alert('Por favor, ingresa un nombre de personaje');
+      toast.warn('Por favor, ingresa un nombre de personaje', {
+        position: 'top-right',
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
       return;
     }
-    // Validación: mínimo 3 caracteres
     if (name.trim().length < 3) {
-      alert('El nombre debe tener al menos 3 caracteres');
+      toast.warn('El nombre debe tener al menos 3 caracteres', {
+        position: 'top-right',
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
       return;
     }
 
-    getPersonaje(name); // llama a la función getPersonaje con el nombre ingresado
+    getPersonaje(name);
   };
+
   return (
-    <form
-      onSubmit={HanddleSubmit}
-      className="max-w-md mx-auto p-4 bg-emerald-50 shadow-md rounded-lg mt-10"
+    <div
+      className={`max-w-md mx-auto p-4 ${
+        theme === 'light' ? 'bg-emerald-50' : 'bg-gray-700'
+      } shadow-md rounded-lg mt-10`}
     >
-      <h1 className="text-center text-6xl text-green-600 font-bold">
-        Rick and Morty
-      </h1>
-      <br />
       <input
         type="text"
         placeholder="Buscar Personaje"
-        value={name} // establece el valor del input al estado name
-        onChange={(e) => setName(e.target.value)} // actualiza el estado name al cambiar el input
-        className="border-2 text-green-700 border-gray-300 rounded-md p-2 w-full mb-4 focus:outline-none focus:border-green-600 transition-colors duration-300"
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+        className={`border-2 ${
+          theme === 'light'
+            ? 'text-green-700 border-gray-300 focus:border-green-600'
+            : 'text-gray-200 border-gray-500 focus:border-gray-400'
+        } rounded-md p-2 w-full mb-4 focus:outline-none transition-colors duration-300`}
       />
       <button
         type="submit"
-        className="bg-green-500 text-white rounded-md p-2 w-full font-bold text-lg hover:bg-green-700 transition-colors duration-300"
+        onClick={handleSubmit}
+        className={`${
+          theme === 'light'
+            ? 'bg-green-500 hover:bg-green-700'
+            : 'bg-gray-600 hover:bg-gray-700'
+        } text-white rounded-md p-2 w-full font-bold text-lg transition-colors duration-300`}
       >
         Buscar
       </button>
-    </form>
+    </div>
   );
 };
 

@@ -1,7 +1,6 @@
 @import "tailwindcss";
 
 body {
-  background-color: #e6f4ea; /* Verde suave */
   margin: 0;
   padding: 0;
   font-family: sans-serif;
@@ -13,4 +12,12 @@ body {
 }
 .animate-fade-in {
   animation: fade-in 0.7s ease;
+}
+
+html.light {
+  background-color: #7fc394; /* Verde suave */
+}
+
+html.dark {
+  background-color: #013e02;
 }
