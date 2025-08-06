@@ -1,7 +1,10 @@
-Rick and Morty App
-Descripción
+# Rick and Morty App
+
+## Descripción
+
 Esta es una aplicación web desarrollada con React y Vite que permite a los usuarios buscar personajes de la serie Rick and Morty utilizando la API de Rick and Morty. La aplicación incluye funcionalidades como agregar personajes a favoritos, mostrar una lista de favoritos en un modal, limpiar resultados de búsqueda, cambiar entre temas claro y oscuro, y notificaciones para interacciones de usuario. El diseño es responsive y utiliza Tailwind CSS para los estilos, con un footer fijo en la parte inferior y un sistema de temas persistente.
-Características
+
+## Características
 
 Búsqueda de personajes: Busca personajes por nombre usando la API de Rick and Morty.
 Favoritos: Permite agregar y eliminar personajes favoritos, persistidos en localStorage.
@@ -12,7 +15,7 @@ Notificaciones: Usa react-toastify para mostrar mensajes de éxito, error y adve
 Footer fijo: El footer permanece fijo al final de la página, ocupando todo el ancho.
 Diseño responsive: Adaptado para dispositivos móviles y de escritorio con Tailwind CSS.
 
-Tecnologías utilizadas
+## Tecnologías utilizadas
 
 React: Biblioteca para construir la interfaz de usuario.
 Vite: Herramienta de construcción rápida para desarrollo y producción.
@@ -22,13 +25,14 @@ React Toastify: Biblioteca para notificaciones estilizadas.
 ESLint: Herramienta para mantener la calidad del código.
 LocalStorage: Para persistir datos de personajes y favoritos.
 
-Instalación
-Prerrequisitos
+## Instalación
+
+#### Prerrequisitos
 
 Node.js (versión 18 o superior)
 npm (versión 9 o superior)
 
-Pasos
+#### Pasos
 
 Clonar el repositorio:
 git clone <URL_DEL_REPOSITORIO>
@@ -51,7 +55,8 @@ npm run preview
 Ejecutar linter:
 npm run lint
 
-Estructura del proyecto
+## Estructura del proyecto
+
 ├── src/
 │ ├── components/
 │ │ ├── Header.jsx # Encabezado con botones de favoritos, limpieza y cambio de tema
@@ -71,7 +76,8 @@ Estructura del proyecto
 ├── package.json # Configuración del proyecto y dependencias
 ├── README.md # Documentación del proyecto
 
-Proceso de desarrollo
+## Proceso de desarrollo
+
 El desarrollo de esta aplicación se centró en crear una experiencia de usuario interactiva y visualmente atractiva para buscar y gestionar personajes de Rick and Morty. A continuación, se describen los pasos clave:
 
 Configuración inicial:
@@ -104,8 +110,9 @@ Calidad del código:
 Se configuró ESLint con plugins para React y Vite para garantizar un código limpio y sin errores.
 Se usaron tipos de React (@types/react, @types/react-dom) para un mejor soporte en TypeScript.
 
-Dependencias
-Dependencias de producción
+## Dependencias
+
+#### Dependencias de producción
 
 @tailwindcss/vite: Plugin para integrar Tailwind CSS con Vite, permitiendo procesar estilos utilitarios y optimizar el CSS para producción.
 axios: Cliente HTTP ligero para realizar peticiones a la API de Rick and Morty, usado en heroeAPI.js para buscar personajes.
@@ -114,7 +121,7 @@ react-dom: Proporciona métodos específicos del DOM para renderizar componentes
 react-toastify: Biblioteca para mostrar notificaciones estilizadas de éxito, error y advertencia, usadas en las búsquedas y validaciones.
 tailwindcss: Framework de CSS utilitario para estilizar la aplicación de forma rápida y responsive.
 
-Dependencias de desarrollo
+#### Dependencias de desarrollo
 
 @eslint/js: Proporciona las reglas base de ESLint para linting de JavaScript.
 @types/react y @types/react-dom: Tipos para React y React DOM, mejorando el soporte de TypeScript y la detección de errores en el desarrollo.
@@ -125,7 +132,7 @@ eslint-plugin-react-refresh: Soporte para Fast Refresh en Vite, mejorando la exp
 globals: Define entornos globales para ESLint, asegurando compatibilidad con Vite y React.
 vite: Herramienta de construcción para un desarrollo rápido y una build optimizada.
 
-Uso
+## Uso
 
 Buscar un personaje:
 
@@ -146,20 +153,9 @@ Cambiar tema:
 
 Haz clic en "Tema Oscuro" o "Tema Claro" en el header para alternar los estilos.
 
-Notas
+## Notas
 
 Los datos de personajes y favoritos se persisten en localStorage para mantener el estado tras recargar.
 El tema (claro/oscuro) también se guarda en localStorage para persistir la preferencia del usuario.
 El footer está fijo al final de la página, ocupando todo el ancho, usando un diseño sticky con flexbox.
 Las notificaciones de react-toastify aparecen en la esquina superior derecha y se cierran automáticamente tras 3 segundos.
-
-Contribuciones
-Si deseas contribuir, por favor:
-
-Crea un fork del repositorio.
-Crea una rama para tus cambios (git checkout -b feature/nueva-funcionalidad).
-Realiza los cambios y haz commit (git commit -m "Añade nueva funcionalidad").
-Envía un pull request con una descripción clara de los cambios.
-
-Licencia
-Este proyecto está bajo la licencia MIT. Consulta el archivo LICENSE para más detalles.
