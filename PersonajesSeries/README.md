@@ -159,3 +159,7 @@ Los datos de personajes y favoritos se persisten en localStorage para mantener e
 El tema (claro/oscuro) también se guarda en localStorage para persistir la preferencia del usuario.
 El footer está fijo al final de la página, ocupando todo el ancho, usando un diseño sticky con flexbox.
 Las notificaciones de react-toastify aparecen en la esquina superior derecha y se cierran automáticamente tras 3 segundos.
+
+## Despliegue en vercel
+
+Enlace del sitio: https://m4-sprint4-tp4.vercel.app

@@ -15,7 +15,7 @@ const FavoritosList = () => {
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
       <div
         className={`${
-          theme === 'light' ? 'bg-white' : 'bg-gray-700'
+          theme === 'light' ? 'bg-green-300' : 'bg-gray-700'
         } rounded-2xl shadow-lg max-w-4xl w-full mx-4 max-h-[80vh] overflow-y-auto p-6`}
       >
         <div className="flex justify-between items-center mb-6">
