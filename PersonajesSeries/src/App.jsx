@@ -6,9 +6,11 @@ import Footer from './components/Footer';
 import { usePersonaje } from './hooks/contexts/personajeContextUtils';
 
 function App() {
+  // Obtiene el tema (claro u oscuro) desde el contexto
   const { theme } = usePersonaje();
 
   return (
+    // Aplica el tema (light o dark) dinámicamente
     <div className={`flex flex-col min-h-screen ${theme}`}>
       <Header />
       <main className="flex-grow">

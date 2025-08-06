@@ -1,6 +1,7 @@
 import { usePersonaje } from '../hooks/contexts/personajeContextUtils';
 
 const Footer = () => {
+  // Obtiene el tema actual (claro u oscuro) desde el contexto
   const { theme } = usePersonaje();
 
   return (

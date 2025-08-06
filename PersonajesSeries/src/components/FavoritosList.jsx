@@ -1,23 +1,29 @@
+// Importa el hook para acceder al contexto
 import { usePersonaje } from '../hooks/contexts/personajeContextUtils';
 
 const FavoritosList = () => {
+  // Obtiene datos y funciones del contexto
   const {
-    favoritos,
-    eliminarFavorito,
-    mostrarFavoritos,
-    toggleFavoritos,
-    theme,
+    favoritos, // Lista de personajes favoritos
+    eliminarFavorito, // Función para eliminar un favorito
+    mostrarFavoritos, // Estado que controla si el modal está visible
+    toggleFavoritos, // Función para alternar visibilidad del modal
+    theme, // Tema actual
   } = usePersonaje();
 
+  // Si el modal no está visible, no renderiza nada
   if (!mostrarFavoritos) return null;
 
   return (
+    // Fondo oscurecido para el modal
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+      {/* Contenedor del modal */}
       <div
         className={`${
           theme === 'light' ? 'bg-green-300' : 'bg-gray-700'
         } rounded-2xl shadow-lg max-w-4xl w-full mx-4 max-h-[80vh] overflow-y-auto p-6`}
       >
+        {/* Encabezado del modal */}
         <div className="flex justify-between items-center mb-6">
           <h2
             className={`text-2xl font-bold ${
@@ -26,6 +32,7 @@ const FavoritosList = () => {
           >
             Personajes Favoritos
           </h2>
+          {/* Botón para cerrar el modal */}
           <button
             onClick={toggleFavoritos}
             className={`${
@@ -37,6 +44,7 @@ const FavoritosList = () => {
             Cerrar
           </button>
         </div>
+        {/* Si no hay favoritos, muestra un mensaje */}
         {favoritos.length === 0 ? (
           <p
             className={`text-center ${
@@ -46,6 +54,7 @@ const FavoritosList = () => {
             No tienes personajes favoritos aún.
           </p>
         ) : (
+          // Lista de personajes favoritos en una cuadrícula
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {favoritos.map((personaje) => (
               <div
@@ -56,6 +65,7 @@ const FavoritosList = () => {
                     : 'bg-gray-600 border-gray-500'
                 } rounded-2xl shadow-lg p-6 flex flex-col items-center transition-transform duration-300 hover:scale-105 hover:shadow-2xl border animate-fade-in`}
               >
+                {/* Imagen del personaje */}
                 <img
                   src={personaje.image}
                   alt={personaje.name}
@@ -63,6 +73,7 @@ const FavoritosList = () => {
                     theme === 'light' ? 'border-green-200' : 'border-gray-400'
                   } mb-4 shadow`}
                 />
+                {/* Nombre del personaje */}
                 <h2
                   className={`text-xl font-bold ${
                     theme === 'light' ? 'text-green-800' : 'text-gray-200'
@@ -70,6 +81,7 @@ const FavoritosList = () => {
                 >
                   {personaje.name}
                 </h2>
+                {/* Estado del personaje */}
                 <p
                   className={`${
                     theme === 'light' ? 'text-green-700' : 'text-gray-300'
@@ -78,6 +90,7 @@ const FavoritosList = () => {
                   Estado:{' '}
                   <span className="font-normal">{personaje.status}</span>
                 </p>
+                {/* Especie del personaje */}
                 <p
                   className={`${
                     theme === 'light' ? 'text-green-700' : 'text-gray-300'
@@ -86,6 +99,7 @@ const FavoritosList = () => {
                   Especie:{' '}
                   <span className="font-normal">{personaje.species}</span>
                 </p>
+                {/* Botón para eliminar de favoritos */}
                 <button
                   className={`mt-2 px-4 py-2 ${
                     theme === 'light'
@@ -105,4 +119,5 @@ const FavoritosList = () => {
   );
 };
 
+// Exporta el componente
 export default FavoritosList;

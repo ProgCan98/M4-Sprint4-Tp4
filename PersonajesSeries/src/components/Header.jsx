@@ -1,6 +1,7 @@
 import { usePersonaje } from '../hooks/contexts/personajeContextUtils';
 
 const Header = () => {
+  // Obtiene funciones y estados del contexto: alternar favoritos, estado de favoritos, limpiar búsqueda y alternar tema
   const {
     toggleFavoritos,
     mostrarFavoritos,
